@@ -41,6 +41,12 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def delete
+    @post= Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+  end
+
   protected
   def get_page(n)
     page_offset = (n - 1) * 10
